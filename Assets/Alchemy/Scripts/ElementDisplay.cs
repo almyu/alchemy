@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ElementDisplay : MonoBehaviour {
 
     public RectTransform template;
+    public int groupSize = 3;
 
     public void Clear() {
         for (int i = transform.childCount; i-- > 0; )
@@ -16,7 +17,9 @@ public class ElementDisplay : MonoBehaviour {
         obj.gameObject.SetActive(true);
         GetComponent<RectTransform>().AddChild(obj);
 
-        obj.pivot = Vector2.right * (1 - transform.childCount);
+        var n = transform.childCount - 1;
+
+        obj.pivot = -Vector2.right * (n + n / groupSize * 0.5f);
         obj.anchoredPosition = Vector2.zero;
 
         obj.GetComponentInChildren<Image>().sprite = e.GetComponent<SpriteRenderer>().sprite;
