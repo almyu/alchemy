@@ -21,9 +21,9 @@ public class Cauldron : MonoSingleton<Cauldron> {
     public class ElementEvent : UnityEvent<Element> {}
     public ElementEvent onPut;
 
-    public UnityEvent onFrogPut;
+    public UnityEvent onFrogPut, postFrogPut;
 
-    [HideInInspector]
+    //[HideInInspector]
     public List<Element> elements;
 
     public void Clear() {
@@ -32,13 +32,17 @@ public class Cauldron : MonoSingleton<Cauldron> {
 
     public void AddElement(Element e) {
         if (e == frog) {
+            onFrogPut.Invoke();
+
             var combo = CheckCombo();
-            if (combo != null)
+            if (combo != null) {
                 combo.Apply();
+                print("Combo! " + combo);
+            }
             else
                 Instantiate(failEffects[Random.Range(0, failEffects.Length)]);
 
-            onFrogPut.Invoke();
+            postFrogPut.Invoke();
             return;
         }
 
