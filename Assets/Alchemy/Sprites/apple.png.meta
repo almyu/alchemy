@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 1c62fa3438f505f4690a8d53af4b6445
+guid: 856dc0040503531468eea05b991c2efd
 TextureImporter:
   fileIDToRecycleName:
-    21300000: PotFront
+    21300000: apple
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,9 +26,9 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 1
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
