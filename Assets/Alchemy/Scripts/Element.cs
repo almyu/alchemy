@@ -4,11 +4,15 @@
 public class Element : MonoBehaviour {
 
     private bool picked;
-    private Vector2 pickOffset;
+    private Vector2 pickOffset, initialPosition;
 
 
     public static Vector2 GetWorldCursor() {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    private void Awake() {
+        initialPosition = transform.position;
     }
 
     private void OnMouseDown() {
@@ -18,6 +22,10 @@ public class Element : MonoBehaviour {
 
     private void OnMouseUp() {
         picked = false;
+        transform.position = initialPosition;
+
+        if (Cauldron.instance.isHovered)
+            Cauldron.instance.AddElement(this);
     }
 
     private void Update() {
