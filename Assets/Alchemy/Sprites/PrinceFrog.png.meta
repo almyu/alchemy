@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: f5dfa33e17f5c0144a30676079e7c814
+guid: 52ea34a3dbfa8404993288a6ba59c3d4
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Water
+    21300000: PrinceFrog
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -38,7 +38,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 1
+  spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
