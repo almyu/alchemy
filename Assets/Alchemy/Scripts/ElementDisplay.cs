@@ -18,9 +18,7 @@ public class ElementDisplay : MonoBehaviour {
         GetComponent<RectTransform>().AddChild(obj);
 
         var n = transform.childCount - 1;
-
-        obj.pivot = -Vector2.right * (n + n / groupSize * 0.5f);
-        obj.anchoredPosition = Vector2.zero;
+        obj.anchoredPosition = Vector2.right * obj.sizeDelta.x * (n + n / groupSize * 0.5f);
 
         obj.GetComponentInChildren<Image>().sprite = e.GetComponent<SpriteRenderer>().sprite;
     }
