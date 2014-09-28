@@ -13,6 +13,9 @@ public class Cauldron : MonoSingleton<Cauldron> {
         }
     }
 
+    public Element frog;
+    public GameObject[] failEffects;
+
     public List<Element> elements;
 
     public void Clear() {
@@ -20,16 +23,22 @@ public class Cauldron : MonoSingleton<Cauldron> {
     }
 
     public void AddElement(Element e) {
+        if (e == frog) {
+            var combo = CheckCombo();
+            if (combo != null)
+                combo.Apply();
+            else
+                Instantiate(failEffects[Random.Range(0, failEffects.Length)]);
+
+            return;
+        }
+
         elements.Add(e);
 
         if (e.effect != null)
             Instantiate(e.effect);
         else
             Debug.Log("Element " + e.name + " put");
-
-        var combo = CheckCombo();
-        if (combo != null)
-            combo.Apply();
     }
 
     public Combination CheckCombo() {
