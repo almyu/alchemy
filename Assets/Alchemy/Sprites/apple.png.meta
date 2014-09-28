@@ -3,6 +3,7 @@ guid: 856dc0040503531468eea05b991c2efd
 TextureImporter:
   fileIDToRecycleName:
     21300000: apple
+    21300002: Apple
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,9 +27,9 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
