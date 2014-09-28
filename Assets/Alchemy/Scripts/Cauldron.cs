@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(CircleCollider2D))]
@@ -16,6 +17,13 @@ public class Cauldron : MonoSingleton<Cauldron> {
     public Element frog;
     public GameObject[] failEffects;
 
+    [System.Serializable]
+    public class ElementEvent : UnityEvent<Element> {}
+    public ElementEvent onPut;
+
+    public UnityEvent onFrogPut;
+
+    [HideInInspector]
     public List<Element> elements;
 
     public void Clear() {
@@ -30,6 +38,7 @@ public class Cauldron : MonoSingleton<Cauldron> {
             else
                 Instantiate(failEffects[Random.Range(0, failEffects.Length)]);
 
+            onFrogPut.Invoke();
             return;
         }
 
@@ -39,6 +48,8 @@ public class Cauldron : MonoSingleton<Cauldron> {
             Instantiate(e.effect);
         else
             Debug.Log("Element " + e.name + " put");
+
+        onPut.Invoke(e);
     }
 
     public Combination CheckCombo() {
