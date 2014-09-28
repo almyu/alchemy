@@ -32,13 +32,14 @@ public class Cauldron : MonoSingleton<Cauldron> {
 
     public void AddElement(Element e) {
         if (e == frog) {
+            onFrogPut.Invoke();
+
             var combo = CheckCombo();
             if (combo != null)
                 combo.Apply();
             else
                 Instantiate(failEffects[Random.Range(0, failEffects.Length)]);
 
-            onFrogPut.Invoke();
             return;
         }
 
