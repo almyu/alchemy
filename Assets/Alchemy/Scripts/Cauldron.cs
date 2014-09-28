@@ -22,6 +22,11 @@ public class Cauldron : MonoSingleton<Cauldron> {
     public void AddElement(Element e) {
         elements.Add(e);
 
+        if (e.effect != null)
+            Instantiate(e.effect);
+        else
+            Debug.Log("Element " + e.name + " put");
+
         var combo = CheckCombo();
         if (combo != null)
             combo.Apply();

@@ -3,6 +3,8 @@
 [RequireComponent(typeof(Collider2D))]
 public class Element : MonoBehaviour {
 
+    public GameObject effect;
+
     private bool picked;
     private Vector2 pickOffset, initialPosition;
 
