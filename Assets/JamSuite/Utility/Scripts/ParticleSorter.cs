@@ -7,7 +7,7 @@ public class ParticleSorter : MonoBehaviour {
     public int sortingOrder;
 
     private void Awake() {
-        var ren = particleSystem.renderer;
+        var ren = GetComponent<ParticleSystem>().GetComponent<Renderer>();
 
         ren.sortingLayerName = sortingLayerName;
         ren.sortingOrder = sortingOrder;

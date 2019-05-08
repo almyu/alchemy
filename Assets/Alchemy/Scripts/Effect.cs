@@ -19,8 +19,7 @@ public class Effect : MonoBehaviour {
         var estimate = 0.0f;
 
         foreach (var ps in GetComponentsInChildren<ParticleSystem>())
-            if (estimate < ps.startLifetime)
-                estimate = ps.startLifetime;
+            estimate = Mathf.Max(estimate, ps.main.startLifetime.constantMax);
 
         return estimate * 1.5f;
     }
